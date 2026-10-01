@@ -128,8 +128,9 @@ if [ -f /firstrun ]; then
 		echo "account default" > /etc/msmtprc
 		echo "logfile /var/log/msmtp.log" >> /etc/msmtprc
 		echo "host ${SMTP_HOST:-mail.example.org}" >> /etc/msmtprc
+		echo "port ${SMTP_PORT}" >> /etc/msmtprc
 		if [ "${SMTP_MAIL_DOMAIN:-}" != "" ]; then
-			echo "from %U@${SMTP_MAIL_DOMAIN}" >> /etc/msmtprc
+               	echo "from ${SMTP_MAIL_FROM}@${SMTP_MAIL_DOMAIN}" >> /etc/msmtprc
 		fi
 		touch /var/log/msmtp.log
 		chown "${BACKUPPC_USERNAME}:${BACKUPPC_GROUPNAME}" /var/log/msmtp.log
