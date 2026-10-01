@@ -16,10 +16,10 @@ ENV RSYNC_BPC_COMMIT="${RSYNC_BPC_COMMIT}"
 # hadolint ignore=DL3018,DL3003
 RUN apk --no-cache --update add \
         rsync tar bash shadow ca-certificates \
-        supervisor \
+        supervisor busybox-extras \
         # TODO: Remove patch when appliance of datadumper.patch is not needed anymore
         patch \
-        perl perl-archive-zip perl-xml-rss perl-cgi perl-file-listing perl-json-xs \
+        perl perl-archive-zip perl-xml-rss perl-cgi perl-file-listing perl-json-xs perl-time-parsedate \
         expat samba-client iputils openssh openssl rrdtool ttf-dejavu \
         msmtp lighttpd lighttpd-mod_auth apache2-utils tzdata libstdc++ libgomp \
         gzip pigz \
